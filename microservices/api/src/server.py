@@ -29,10 +29,10 @@ def home():
 
     # Make the query and store response in resp
     resp = requests.request("POST", url, data=json.dumps(requestPayload), headers=headers)
-    pdata=json.loads(resp.content.decode("UTF-8"))
 
 
-    return(pdata)
+
+    return(resp.content)
 
 
 @app.route("/signup",methods=['GET','POST'])
@@ -83,7 +83,7 @@ def signup():
                         "name": uname,
 												"phone": phone,
                         "email": email
-                        
+
                     }
                 ]
             }
@@ -97,20 +97,11 @@ def signup():
         # Make the query and store response in resp
         resp = requests.request("POST", url, data=json.dumps(requestPayload), headers=headers)
         data=json.loads(resp.content.decode("UTF-8"))
-		return(uname)
-        
-
-
-        
-
-   
-
-
-
+    return uname
 
 @app.route("/login" ,methods=["GET","POST"])
 def login():
-    
+
     if request.method=="POST":
         uname=request.form["uname"]
         password=request.form["password"]
@@ -134,8 +125,8 @@ def login():
         # Make the query and store response in resp
         resp = requests.request("POST", url, data=json.dumps(requestPayload), headers=headers)
 
-      
-        
+
+
     return (resp.content)
 
 @app.route('/userinfo/<int:hasura_id>')
@@ -336,6 +327,7 @@ def cartitems(hasura_id):
 
 
     return(resp.content)
+
 
 
 
