@@ -1,0 +1,10 @@
+- args:
+    permission:
+      columns:
+      - sno
+      - prod_id
+      - hasura_id
+      filter: {}
+    role: anonymous
+    table: cart
+  type: create_select_permission

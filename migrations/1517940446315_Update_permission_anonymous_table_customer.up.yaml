@@ -1,0 +1,11 @@
+- args:
+    permission:
+      columns:
+      - phone
+      - hasura_id
+      - name
+      - email
+      filter: {}
+    role: anonymous
+    table: customer
+  type: create_select_permission
