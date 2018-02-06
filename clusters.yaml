@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: acidify29-hasura
+  data: null
+  kubeContext: acidify29
+  name: acidify29
